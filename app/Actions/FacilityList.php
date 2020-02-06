@@ -2,7 +2,6 @@
 
 namespace App\Actions;
 
-use App\Facility;
 use Carbon\Carbon;
 use Lorisleiva\Actions\Action;
 use Illuminate\Http\JsonResponse;
@@ -20,12 +19,15 @@ class FacilityList extends Action
     {
         return [
             'latitude' => [
+                'required',
                 'numeric',
             ],
             'longitude' => [
+                'required',
                 'numeric',
             ],
             'radius' => [
+                'required',
                 'numeric',
             ],
         ];
@@ -84,7 +86,7 @@ class FacilityList extends Action
             ->whereNotNull('meters')
             ->where('meters', '<', $data['radius'])
             ->orderBy('meters')
-            ->limit(1000)
+            ->limit(40)
             ->get()
         ;
     }
