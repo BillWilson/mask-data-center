@@ -13,7 +13,7 @@
             :attribution="attribution"
         />
         <l-control position="bottomleft" >
-            <v-btn>宣導資訊</v-btn>
+            <v-btn href="https://www.facebook.com/mohw.gov.tw/photos/a.484593545040402/1472260732940340/?type=1&theater" target="_blank">宣導資訊</v-btn>
         </l-control>
 
         <l-marker v-for="(item) in this.list" :key="item.code" :lat-lng="item.posPoint">
