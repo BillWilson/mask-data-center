@@ -2,7 +2,10 @@
 
 namespace App;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
+use Lorisleiva\Actions\Concerns\HasAttributes;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
 /**
@@ -48,5 +51,10 @@ class Facility extends Model
     public function logs(): HasMany
     {
         return $this->hasMany(Logs::class);
+    }
+
+    public function getUpdatedAtAttribute($value)
+    {
+        return Carbon::parse($value)->toISOString();
     }
 }

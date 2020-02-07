@@ -123,6 +123,8 @@ return [
 
     'cipher' => 'AES-256-CBC',
 
+    'list-mode' => env('LIST_MODE', 'db'),
+
     /*
     |--------------------------------------------------------------------------
     | Autoloaded Service Providers
