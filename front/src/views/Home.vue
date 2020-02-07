@@ -97,7 +97,7 @@ import {propsBinder} from "vue2-leaflet";import {findRealParent} from "vue2-leaf
 
 <script>
     // @ is an alias to /src
-    import {DomEvent, latLng} from "leaflet";
+    import {latLng} from "leaflet";
     import {LMap, LTileLayer, LMarker, LPopup, LControl} from "vue2-leaflet";
     import Vue2LeafletLocatecontrol from 'vue2-leaflet-locatecontrol/Vue2LeafletLocatecontrol'
 
@@ -115,9 +115,9 @@ import {propsBinder} from "vue2-leaflet";import {findRealParent} from "vue2-leaf
             return {
                 zoom: 8,
                 center: latLng(23.982664624813566, 121.01411378997452),
-                url: "http://{s}.tile.osm.org/{z}/{x}/{y}.png",
+                url: "https://{s}.tile.osm.org/{z}/{x}/{y}.png",
                 attribution:
-                    '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors',
+                    '&copy; <a href="https://osm.org/copyright">OpenStreetMap</a> contributors',
                 withPopup: latLng(23.982664624813566, 121.01411378997452),
                 withTooltip: latLng(23.982664624813566, 121.01411378997452),
                 currentZoom: 11.5,
