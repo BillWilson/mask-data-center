@@ -153,11 +153,9 @@ import {propsBinder} from "vue2-leaflet";import {findRealParent} from "vue2-leaf
             },
             onReady (mapObject) {
                 mapObject.locate();
-                DomEvent.on(mapObject, this.$listeners);
             },
             onLocationFound(location){
                 this.currentCenter = location.latlng;
-
                 // this.$refs.map.mapObject.
             }
         }
