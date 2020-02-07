@@ -125,6 +125,8 @@ return [
 
     'list-mode' => env('LIST_MODE', 'db'),
 
+    'list-limit' => env('LIST_LIMIT', 40),
+
     /*
     |--------------------------------------------------------------------------
     | Autoloaded Service Providers

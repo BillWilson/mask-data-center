@@ -27,6 +27,8 @@ class FacilityList extends Action
         'updated_at',
     ];
 
+    protected int $dataCountLimit;
+
     /**
      * Get the validation rules that apply to the action.
      *
@@ -58,6 +60,8 @@ class FacilityList extends Action
     public function handle(): JsonResponse
     {
         $mode = config('app.list-mode');
+
+        $this->dataCountLimit = config('app.list-limit');
 
         $result = $mode === 'db' ? $this->getDbData() : $this->getFileData();
 
@@ -147,7 +151,7 @@ class FacilityList extends Action
             }
         });
 
-        $result = $result->sortBy('distance', SORT_REGULAR)->take(40)->map->id;
+        $result = $result->sortBy('distance', SORT_REGULAR)->take($this->dataCountLimit)->map->id;
 
         return Facility::select($this->selectCols)
             ->find($result->values()->all());
@@ -179,7 +183,7 @@ class FacilityList extends Action
             ->whereNotNull('meters')
             ->where('meters', '<=', $data['radius'])
             ->orderBy('meters')
-            ->limit(40)
+            ->limit($this->dataCountLimit)
             ->get();
     }
 }
