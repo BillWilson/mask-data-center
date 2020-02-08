@@ -40,6 +40,12 @@
         >
 <!--            <v-app-bar-nav-icon @click.stop="drawer = !drawer" />-->
             <v-toolbar-title>口罩地圖</v-toolbar-title> (請移動地圖並點擊圖示查閱庫存)
+            <v-btn color="blue" small dark
+                   href="https://forms.gle/PKP8iMSJ7AdbQEqW7"
+                   target="_blank">
+                <v-icon left>mdi-alert-octagram</v-icon>
+                問題回報
+            </v-btn>
         </v-app-bar>
 
         <v-content>
