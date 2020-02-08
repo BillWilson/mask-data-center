@@ -174,9 +174,7 @@ class FacilityList extends Action
                     [$data['longitude'], $data['latitude']]
                 )
                     ->addSelect($this->selectCols)
-                    ->from('facilities')
-                    ->where('adult', '>', 0)
-                    ->where('child', '>', 0);
+                    ->from('facilities');
             },
             'facilities'
         )

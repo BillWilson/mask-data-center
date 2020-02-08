@@ -35,12 +35,10 @@ import {propsBinder} from "vue2-leaflet";import {findRealParent} from "vue2-leaf
                     >
                         <v-list-item two-line>
                             <v-list-item-content>
-                                <v-list-item-title class="headline font-weight-bold">{{item.name}}
-                                    <v-btn class="ma-2" tile large color="teal" small icon :href="'https://www.google.com.tw/maps/search/' + item.address" target="_blank">
-                                        <v-icon>mdi-call-split</v-icon>
-                                    </v-btn>
-                                </v-list-item-title>
-                                <v-list-item-subtitle>{{item.address}}</v-list-item-subtitle>
+                                <v-list-item-title class="headline font-weight-bold">{{item.name}}</v-list-item-title>
+                                <v-list-item-subtitle>{{item.address}} <v-btn class="ma-2" tile color="teal" small icon :href="'https://www.google.com.tw/maps/search/' + item.address" target="_blank">
+                                    <v-icon>mdi-call-split</v-icon>
+                                </v-btn></v-list-item-subtitle>
                                 <v-list-item-subtitle><a :href="'tel:' + item.tel" target="_blank">{{item.tel}}</a></v-list-item-subtitle>
                             </v-list-item-content>
                         </v-list-item>
@@ -65,7 +63,7 @@ import {propsBinder} from "vue2-leaflet";import {findRealParent} from "vue2-leaf
                                     <v-avatar left>
                                         <v-icon>mdi-human-male-female</v-icon>
                                     </v-avatar>
-                                    成人口罩總剩餘數: {{item.adult}}
+                                    成人口罩: {{item.adult}}
                                 </v-chip>
 
                                 <v-chip
@@ -74,7 +72,7 @@ import {propsBinder} from "vue2-leaflet";import {findRealParent} from "vue2-leaf
                                     <v-avatar left>
                                         <v-icon>mdi-human-child</v-icon>
                                     </v-avatar>
-                                    兒童口罩剩餘數: {{item.child}}
+                                    兒童口罩: {{item.child}}
                                 </v-chip>
 
                             </v-chip-group>
@@ -136,7 +134,7 @@ import {propsBinder} from "vue2-leaflet";import {findRealParent} from "vue2-leaf
             getList() {
                 // const range = this.currentZoom;
 
-                this.$http.get('http://localhost:8001/api/facilities?latitude=' + this.currentCenter.lat + '&longitude=' + this.currentCenter.lng + '&radius=2500').then((response) => {
+                this.$http.get('http://localhost:8001/api/facilities?latitude=' + this.currentCenter.lat + '&longitude=' + this.currentCenter.lng + '&radius=5000').then((response) => {
                     this.list = response.data.data.map((item) => {
                         item.posPoint = latLng(item.latitude, item.longitude);
                         return item;
